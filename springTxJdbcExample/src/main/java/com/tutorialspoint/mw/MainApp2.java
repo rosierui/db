@@ -1,25 +1,26 @@
-package com.tutorialspoint;
+package com.tutorialspoint.mw;
 import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import com.tutorialspoint.StudentJDBCTemplate;
+import com.tutorialspoint.StudentMarks;
 
 /**
+ * Modified from com.tutorialspoint.MainApp
  * http://www.tutorialspoint.com/spring/programmatic_management.htm
- *
  */
-public class MainApp {
+public class MainApp2 {
    public static void main(String[] args) {
       ApplicationContext context = 
-             new ClassPathXmlApplicationContext("Beans.xml");
+             new ClassPathXmlApplicationContext("tutContext.xml");
 
       StudentJDBCTemplate studentJDBCTemplate = 
       (StudentJDBCTemplate)context.getBean("studentJDBCTemplate");
-      
+
       System.out.println("------Records creation--------" );
-      studentJDBCTemplate.create("Zara", 11, 99, 2010);
-      studentJDBCTemplate.create("Nuha", 20, 97, 2010);
-      studentJDBCTemplate.create("Ayan", 25, 100, 2011);
+      studentJDBCTemplate.createTx("Mark Carr", 11, 99, 2010);
+      studentJDBCTemplate.createTx("Juash Rosa", 20, 97, 2010);
+      studentJDBCTemplate.createTx("Joe Smith", 25, 100, 2011);
+      studentJDBCTemplate.createTx("Mary Johnson", 21, 89, 1998);
 
       System.out.println("------Listing all the records--------" );
       List<StudentMarks> studentMarks = studentJDBCTemplate.listStudents();

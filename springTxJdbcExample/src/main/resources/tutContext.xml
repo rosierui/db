@@ -8,6 +8,7 @@
            http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
 
    <!-- http://www.tutorialspoint.com/spring/programmatic_management.htm -->
+   <!-- Modified from Beans.xml -->
    <!-- Initialization for data source -->
    <bean id="dataSource" 
       class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -24,12 +25,12 @@
    <!-- Initialization for TransactionManager -->
    <bean id="transactionManager" 
       class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-      <property name="dataSource"  ref="dataSource" />    
+      <property name="dataSource"  ref="dataSource" />
    </bean>
 
    <!-- Definition for studentJDBCTemplate bean -->
    <bean id="studentJDBCTemplate"
-      class="com.tutorialspoint.StudentJDBCTemplate">
+      class="com.tutorialspoint.mw.StudentJDBCTemplate">
       <property name="dataSource"  ref="dataSource" />
       <property name="transactionManager"  ref="transactionManager" />
    </bean>
