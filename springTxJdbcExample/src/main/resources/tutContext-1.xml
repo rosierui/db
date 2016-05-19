@@ -10,28 +10,25 @@
    <!-- http://www.tutorialspoint.com/spring/programmatic_management.htm -->
    <!-- Modified from Beans.xml -->
    <!-- Initialization for data source -->
-   <bean id="dataSource" 
-      class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-      <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-      <property name="url" value="jdbc:mysql://localhost:3306/test"/>
-      <property name="username" value="root"/>
-      <property name="password" value=""/>
+   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/test"/>
+        <property name="username" value="root"/>
+        <property name="password" value=""/>
    </bean>
 
-   <!-- dataSource - passed to studentJDBCHandler defined below -->
+   <!-- Parameter 1 passed to studentJDBCHandler - dataSource -->
     <jdbc:initialize-database data-source="dataSource" enabled="true">
         <jdbc:script location="classpath:tutorialspoint.sql" />
     </jdbc:initialize-database>
 
-   <!-- transactionManager - passed to studentJDBCHandler defined below -->
-   <bean id="transactionManager" 
-      class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+   <!-- Parameter 2 passed to studentJDBCHandler - transactionManager -->
+   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
       <property name="dataSource"  ref="dataSource" />
    </bean>
 
    <!-- Definition for studentJDBCHandler bean - data access component -->
-   <bean id="studentJDBCHandler"
-      class="com.tutorialspoint.mw.StudentJDBCHandler">
+   <bean id="studentJDBCHandler" class="com.tutorialspoint.mw.StudentJDBCHandler">
       <property name="dataSource"  ref="dataSource" />
       <property name="transactionManager"  ref="transactionManager" />
    </bean>
