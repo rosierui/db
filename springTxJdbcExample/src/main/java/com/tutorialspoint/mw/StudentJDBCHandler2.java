@@ -55,6 +55,8 @@ public class StudentJDBCHandler2 {
     * method of PlatformTransactionManager to commit the transaction, otherwise
     * you can use rollback() to rollback the complete operation.
     *
+    * See com.javacodegeeks.springtx.jdbc.examples.SpringTranManagerFundTransferTransaction
+    *
     * @param name
     * @param age
     * @param marks

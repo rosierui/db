@@ -12,6 +12,10 @@ public class SpringTranManagerFundTransferTransaction extends FundManagerDao imp
         this.transactionManager = txManager;
     }
 
+    /**
+     * See com.tutorialspoint.mw.StudentJDBCHandler
+     * See com.tutorialspoint.mw.StudentJDBCHandler2
+     */
     public void transfer(int accountNbr1, int accountNbr2, int amount) throws Exception {
         TransactionDefinition txDef = new DefaultTransactionDefinition();
         TransactionStatus txStatus = transactionManager.getTransaction(txDef);
