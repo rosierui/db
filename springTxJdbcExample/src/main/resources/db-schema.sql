@@ -1,5 +1,5 @@
-drop table if exists `Account`;
-CREATE TABLE `Account` (
+drop table if exists `ACCOUNT`;
+CREATE TABLE `ACCOUNT` (
   `ID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `NAME` VARCHAR(100) NOT NULL,
   `BALANCE` INT(10) UNSIGNED NOT NULL,
