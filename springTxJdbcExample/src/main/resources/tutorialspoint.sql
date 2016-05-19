@@ -1,3 +1,4 @@
+drop table if exists `Student`;
 CREATE TABLE Student(
    ID   INT NOT NULL AUTO_INCREMENT,
    NAME VARCHAR(20) NOT NULL,
@@ -5,6 +6,7 @@ CREATE TABLE Student(
    PRIMARY KEY (ID)
 );
 
+drop table if exists `Marks`;
 CREATE TABLE Marks(
    SID INT NOT NULL,
    MARKS  INT NOT NULL,
