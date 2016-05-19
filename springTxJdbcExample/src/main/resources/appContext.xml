@@ -17,7 +17,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost/test" />
         <property name="username" value="root" />
-        <property name="password" value="dbAdmin" />
+        <property name="password" value="" />
     </bean>
 
    <!-- Definition for JdbcTemplate bean -->
