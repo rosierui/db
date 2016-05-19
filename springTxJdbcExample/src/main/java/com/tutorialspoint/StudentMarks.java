@@ -1,5 +1,9 @@
 package com.tutorialspoint;
 
+/**
+ * Combine fields in table Student and Marks 
+ *
+ */
 public class StudentMarks {
    private Integer age;
    private String name;
