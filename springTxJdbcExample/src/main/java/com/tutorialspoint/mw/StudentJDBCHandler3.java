@@ -12,7 +12,7 @@ import com.tutorialspoint.StudentMarks;
 import com.tutorialspoint.StudentMarksMapper;
 
 /**
- * Modified from com.tutorialspoint.StudentJDBCTemplate
+ * Modified from StudentJDBCHandler2 for transaction rollback test
  *
  * http://www.tutorialspoint.com/spring/programmatic_management.htm
  *
@@ -26,7 +26,7 @@ import com.tutorialspoint.StudentMarksMapper;
  *     TransactionStatus getTransaction(TransactionDefinition definition) 
  *     void rollback(TransactionStatus status) 
  */
-public class StudentJDBCHandler2 {
+public class StudentJDBCHandler3 {
 
    private JdbcTemplate jdbcTemplate;
    private PlatformTransactionManager transactionManager;
@@ -62,7 +62,7 @@ public class StudentJDBCHandler2 {
     * @param marks
     * @param testYear
     */
-   public void createTx(String name, Integer age, Integer marks, Integer testYear, boolean fireException){
+   public void createTx(String name, Integer age, Integer marks, Integer testYear){
 
       TransactionDefinition txDef = new DefaultTransactionDefinition();
       TransactionStatus txStatus = transactionManager.getTransaction(txDef);
@@ -80,18 +80,12 @@ public class StudentJDBCHandler2 {
 
          System.out.println("Created Name = " + name + ", Age = " + age);
 
-         if (fireException) {
-             throw new Exception();
-         }
          transactionManager.commit(txStatus);
 
       } catch (DataAccessException e) {
          System.out.println("Error in creating record, rolling back");
          transactionManager.rollback(txStatus);
          throw e;
-      } catch (Exception e) {
-         System.out.println("Error in creating record, rolling back");
-         transactionManager.rollback(txStatus);
       }
       return;
    }
