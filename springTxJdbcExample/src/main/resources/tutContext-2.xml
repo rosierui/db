@@ -18,17 +18,18 @@
       <property name="password" value=""/>
    </bean>
 
+   <!-- referenced but not passed to studentJDBCHandler2 defined below -->
     <jdbc:initialize-database data-source="dataSource" enabled="true">
         <jdbc:script location="classpath:tutorialspoint.sql" />
     </jdbc:initialize-database>
 
-   <!-- transactionManager - passed to studentJDBCHandler defined below -->
+   <!-- jdbcTemplate - passed to studentJDBCHandler2 defined below -->
    <bean id="jdbcTemplate" 
       class="org.springframework.jdbc.core.JdbcTemplate">
       <property name="dataSource"  ref="dataSource" />
    </bean>
 
-   <!-- transactionManager - passed to studentJDBCHandler defined below -->
+   <!-- transactionManager - passed to studentJDBCHandler2 defined below -->
    <bean id="transactionManager" 
       class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
       <property name="dataSource"  ref="dataSource" />
